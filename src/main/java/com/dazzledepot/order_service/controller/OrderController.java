@@ -12,13 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
+//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class OrderController {
     @Autowired
     private OrderRepository orderRepo;
 
     @Autowired
     private RestTemplate restTemplate;
-
     @PostMapping("/place")
     public Order placeOrder(@RequestBody Order order) {
         if (order.getItems() == null) order.setItems(new ArrayList<>());
